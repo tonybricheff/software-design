@@ -8,20 +8,22 @@ public class HtmlBuilder {
 
     private final StringBuilder dom = new StringBuilder();
 
-    void add(String str, String lastCharacter) {
+    HtmlBuilder add(String str, String lastCharacter) {
         dom.append(str).append(lastCharacter);
+        return this;
     }
 
-    public void add(String str) {
-        add(str, "\n");
+    public HtmlBuilder add(String str) {
+        return add(str, "\n");
     }
 
-    void add(int value, String lastCharacter) {
+    HtmlBuilder add(int value, String lastCharacter) {
         dom.append(value).append(lastCharacter);
+        return this;
     }
 
-    public void add(int value) {
-        add(value, "\n");
+    public HtmlBuilder add(int value) {
+        return add(value, "\n");
     }
 
     @Override
@@ -31,6 +33,7 @@ public class HtmlBuilder {
                 .append(HTML_START + BODY_START + "\n")
                 .append(dom.toString())
                 .append(BODY_END + HTML_END);
+
         return stringBuilder.toString();
     }
 }
