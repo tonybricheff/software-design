@@ -1,0 +1,24 @@
+com/brichev/mvc/controller/TaskController.java
+ com.brichev.mvc.controller.TaskController
+com/brichev/mvc/service/TaskService.java
+ com.brichev.mvc.service.TaskService
+com/brichev/mvc/model/dto/Task.java
+ com.brichev.mvc.model.dto.Task
+ com.brichev.mvc.model.dto.Task$TaskBuilder
+com/brichev/mvc/service/TaskServiceImpl.java
+ com.brichev.mvc.service.TaskServiceImpl
+com/brichev/mvc/repository/TaskListRepository.java
+ com.brichev.mvc.repository.TaskListRepository
+com/brichev/mvc/model/dto/TaskList.java
+ com.brichev.mvc.model.dto.TaskList
+ com.brichev.mvc.model.dto.TaskList$TaskListBuilder
+com/brichev/mvc/repository/TaskRepository.java
+ com.brichev.mvc.repository.TaskRepository
+com/brichev/mvc/TaskListServer.java
+ com.brichev.mvc.TaskListServer
+com/brichev/mvc/model/enitity/TaskListEntity.java
+ com.brichev.mvc.model.enitity.TaskListEntity
+ com.brichev.mvc.model.enitity.TaskListEntity$TaskListEntityBuilder
+com/brichev/mvc/model/enitity/TaskEntity.java
+ com.brichev.mvc.model.enitity.TaskEntity
+ com.brichev.mvc.model.enitity.TaskEntity$TaskEntityBuilder

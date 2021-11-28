@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<head>
+    <link th:href="@{styles/index.css}" rel="stylesheet" />
+    <title>Task List</title>
+</head>
+<body>
+<div class="boxes">
+    <div class="boxes__element">
+        <h3>New category for Task List</h3>
+        <form action="/add-list" method="POST" th:object="${taskList}">
+            <div class="input-box">
+                <div>Title</div>
+                <input class="input-box-style" th:field="*{description}" type="text"/>
+            </div>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    <div class="boxes__element">
+        <h3>Add new Task</h3>
+        <form action="/add-task" method="POST" th:object="${task}">
+            <div class="input-box">
+                <div>Description</div>
+                <select class="input-select-box-style" th:field="*{listId}">
+                    <option th:each="list : ${lists}" th:selected="${list.id==0}" th:text="${list.description}"
+                            th:value="${list.id}"></option>
+                </select>
+                <input class="input-box-style" th:field="*{description}" type="text"/>
+            </div>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    <div class="boxes__element">
+        <h3 class="boxes">All lists</h3>
+        <th:block th:each="list : ${lists}">
+            <div class="category-list">
+                <h4 th:text="${list.description}"></h4>
+                <a th:href="@{'/delete/' + ${list.id}}">Delete list</a>
+                <table>
+                    <tr th:each="task : ${list.tasks}">
+                        <td th:if="${task.isCompleted == false}" th:text="${task.description}"></td>
+                        <td th:if="${task.isCompleted == true}"><del th:text="${task.description}"></del></td>
+                        <td>
+                            <a th:href="@{'/done/' + ${task.listId} + '/' + ${task.id}}" th:if="${task.isCompleted == false}">Complete</a>
+                            <a th:href="@{'/delete/' + ${task.listId} + '/' + ${task.id}}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </th:block>
+    </div>
+</div>
+</body>
+</html>
